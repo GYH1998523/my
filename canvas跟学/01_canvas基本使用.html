@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>canvas基本使用</title>
+
+	</head>
+	<style type="text/css">
+
+	</style>
+	<body>
+		<canvas id="mycanvas" width="400" height="400" style="border:1px solid skyblue">
+			当前的浏览器版本不支持，请升级浏览器
+		</canvas>
+	</body>
+</html>
+<script type="text/javascript">
+	var canvas = document.getElementById("mycanvas")
+
+	var ctx = canvas.getContext("2d");
+	console.log(ctx)
+	// 必须先设置颜色  然后绘制图形
+	// // 填充颜色
+	ctx.fillStyle = "green"
+	// 绘制
+	ctx.fillRect(100, 100, 100, 100)
+	// ctx.filRect(100,200,50,70);
+
+	ctx.beginPath()
+	ctx.moveTo(0,20)
+	ctx.lineTo(20,canvas.width)
+</script>

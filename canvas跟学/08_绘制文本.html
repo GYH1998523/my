@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<style>
+    @font-face {
+        font-family: gaoyinghua;
+        src: url("./font/gaoyinghua.ttf");
+        /* src: url("./font/PINGFANG\ BOLD.TTF");
+        src: url("./font/PINGFANG\ EXTRALIGHT.TTF");
+        src: url("./font/PINGFANG\ HEAVY.TTF");
+        src: url("./font/PINGFANG\ LIGHT.TTF");
+        src: url("./font/PINGFANG\ MEDIUM.TTF");
+        src: url("./font/PINGFANG\ REGULAR.TTF"); */
+    }
+    
+    #gyh {
+        font-size: 30px;
+        font-family: gaoyinghua;
+    }
+</style>
+
+<body>
+    <div id="gyh">我叫高应华</div>
+    <canvas id="canvas" width="500" height="300" style="border:1px solid orange;"></canvas>
+</body>
+
+</html>
+
+<script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var text = "我叫高应华";
+    var w = ctx.canvas.width
+    var h = ctx.canvas.height
+    if (ctx) {
+        // 水平线
+        ctx.beginPath();
+        ctx.moveTo(0, h / 2)
+        ctx.lineTo(w, h / 2)
+        ctx.strokeStyle = "#eee"
+        ctx.stroke()
+
+        // 垂直线
+        ctx.beginPath();
+        ctx.moveTo(w / 2, 0);
+        ctx.lineTo(w / 2, h);
+        ctx.strokeStyle = "#eee";
+        ctx.stroke();
+
+
+        // 绘制文本
+        ctx.beginPath();
+        ctx.font = "40px monospace";
+        // 垂直对齐方式
+        ctx.textAlign = "center"
+        ctx.textBaseline = "middle";
+        ctx.strokeStyle = "green"
+        ctx.strokeText(text, w / 2, h / 2)
+            // ctx.fillText(text, 0, 0)
+            // 画一条在文本底部的线条
+
+        ctx.beginPath();
+        ctx.moveTo(w / 2 - ctx.measureText(text).width / 2, h / 2 + 30)
+        ctx.lineTo(w / 2 + ctx.measureText(text).width / 2, h / 2 + 30)
+        ctx.strokeStyle = "green"
+        ctx.stroke();
+
+
+
+    }
+</script>

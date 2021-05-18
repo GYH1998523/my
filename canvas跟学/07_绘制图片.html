@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <canvas id="canvas" width="500" height="300" style="border:1px solid orange;"></canvas>
+</body>
+
+</html>
+<script>
+    // 与其说是绘制图片 不如说是吧图片引入在canvas里面
+
+    var canvas = document.getElementById("canvas");
+    if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+        var img = new Image();
+        (function() {
+            var num = 1
+            img.src = `./imgs/img/02_${num}.JPG`
+
+            setInterval(() => {
+                num++
+                if (num > 29) {
+                    num = 1
+                }
+                img.src = `./imgs/img/02_${num}.JPG`
+            }, 100)
+
+        }())
+
+        img.onload = function() {
+            ctx.drawImage(img, 70, 70, 300, 200);
+
+        }
+
+
+
+    } else {
+        alert("您的电脑不支持canvas");
+    }
+</script>
